@@ -164,15 +164,27 @@ Der CSRF-Schutz sollte daher immer aktiviert bleiben, außer, wenn der direkte A
 ### Themes
 
 	// Im YForm-Formbuilder
-	objparams|form_ytemplate|classic
+	objparams|form_ytemplate|bootstrap
 
 ```php
 // In PHP
-$yform->setObjectparams('form_ytemplate','classic');
+$yform->setObjectparams('form_ytemplate','bootstrap');
 ```
 
-YForm verfügt über `Templates`, in denen das HTML-Markup definiert ist, das die Felder umgibt. Im Ordner `ytemplates` gibt es Unterordner für jedes Theme, in denen dann die Templates für die einzelnen Felder zu finden sind. Auf diese Weise kann man schnell eigene Themes definieren, die auf dem Basis-Theme aufbauen: Wenn es für einen Feldtyp ein eigenes Template gibt, wird dieses verwendet, anonsten das des Basis-Themes.
-Der Defaultwert lautet `bootstrap`, d.h. als Basis-Theme ist das HTML-Schema des CSS-Frameworks "Bootstrap" hinterlegt.
+YForm verfügt über `Templates`, in denen das HTML-Markup definiert ist, das die Felder umgibt. Im Ordner `ytemplates` gibt es Unterordner für jedes Theme, in denen dann die Templates für die einzelnen Felder zu finden sind. Auf diese Weise kann man schnell eigene Themes definieren, die auf dem Basis-Theme aufbauen.
+Themes können in eigenen Addons, im project Addon oder im theme Addon abgelegt werden. Der Defaultwert lautet `bootstrap`, d.h. als Basis-Theme ist das HTML-Schema des CSS-Frameworks "Bootstrap" hinterlegt.
+ 
+Möchte man sein eigenes Template mit Feldtypanpassungen verwenden, sollten nur die veränderten Felder im eigenen Templateordner abgelegt werden.
+Wenn es für einen Feldtyp ein eigenes Template gibt, wird dieses verwendet, anonsten das des Basis-Themes. Der Fallback `bootstrap` muss immer mit angegeben werden.
+
+  // Im YForm-Formbuilder
+  objparams|form_ytemplate|custom,bootstrap
+
+```php
+// In PHP
+$yform->setObjectparams('form_ytemplate','custom,bootstrap');
+```
+
 
 <a name="submit-benennen"></a>
 ### Submit-Button benennen
